@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Urbanization and Surface Thermal Change in Semarang (2016–2026) — WebGIS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="topbar">
+  <div class="topbar-left">
+    <img src="logo.svg" alt="Logo SUH" class="brand-mark">
+    <div class="brand-text">
+      <span class="brand-title">Urbanization and Surface Thermal Change in Semarang (2016–2026)</span>
+      <span class="brand-sub">Urban Heat Island (UHI) Analysis — oleh <strong>Andre Lingga</strong></span>
+    </div>
+  </div>
+  <nav class="topbar-right">
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<!-- ============ APP BODY ============ -->
+<main class="app">
+
+  <!-- Sidebar kontrol -->
+  <aside class="sidebar">
+
+    <div class="control-group">
+      <label class="control-label" for="yearSel">Tahun</label>
+      <select id="yearSel">
+        <option value="2016">2016</option>
+        <option value="2026" selected>2026</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="varSel">Variabel</label>
+      <select id="varSel">
+        <optgroup label="Nilai per tahun">
+          <option value="lst">LST — suhu permukaan (°C)</option>
+          <option value="ndvi">NDVI — vegetasi</option>
+          <option value="ndbi">NDBI — built-up index</option>
+          <option value="ndwi">NDWI — indeks air</option>
+          <option value="built">Built-up fraction</option>
+          <option value="popdens">Kepadatan penduduk</option>
+        </optgroup>
+        <optgroup label="Perubahan 2016 → 2026 (Delta)">
+          <option value="delta_lst">Delta LST</option>
+          <option value="delta_ndvi">Delta NDVI</option>
+          <option value="delta_ndbi">Delta NDBI</option>
+          <option value="delta_ndwi">Delta NDWI</option>
+          <option value="delta_fvc">Delta FVC (vegetasi)</option>
+          <option value="delta_built">Delta Built-up</option>
+          <option value="delta_wsf">Delta WSF</option>
+          <option value="delta_pwg">Delta PWG</option>
+          <option value="delta_popdens">Delta Kepadatan Penduduk</option>
+        </optgroup>
+        <optgroup label="Faktor lokasi (statis)">
+          <option value="road_density">Kepadatan jalan</option>
+          <option value="distCBD">Jarak ke CBD</option>
+          <option value="distArterial">Jarak ke jalan arteri</option>
+          <option value="distCoastline">Jarak ke garis pantai</option>
+        </optgroup>
+        <optgroup label="Hasil model & klaster">
+          <option value="ols_residuals">Residual OLS (anomali)</option>
+          <option value="spatial_residuals">Residual model spasial (SEM)</option>
+          <option value="ols_predicted">Prediksi model (ΔLST)</option>
+          <option value="lisa">Klaster LISA</option>
+          <option value="lisa_quadrant">Kuadran LISA (angka)</option>
+          <option value="lisa_pval">Signifikansi LISA (p-value)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="searchGrid">Cari grid</label>
+      <input type="text" id="searchGrid" placeholder="Masukkan ID grid, cth. 245" />
+      <span class="control-hint" id="searchHint"></span>
+    </div>
+
+    <div class="control-group toggle-row">
+      <label class="control-label" for="swipeToggle">Swipe Mode 2016 vs 2026</label>
+      <input type="checkbox" id="swipeToggle" />
+    </div>
+
+    <div class="legend-block">
+      <span class="control-label">Legenda</span>
+      <div id="legend-gradient"></div>
+      <div id="legend-labels">
+        <span id="legend-min">–</span>
+        <span id="legend-max">–</span>
+      </div>
+      <div id="legend-categorical"></div>
+    </div>
+
+    <div class="chart-block">
+      <span class="control-label">Distribusi nilai (grid ter-load)</span>
+      <canvas id="histChart" width="260" height="150"></canvas>
+    </div>
+
+    <div class="info-block" id="gridInfo">
+      <span class="control-label">Detail grid</span>
+      <p class="info-empty">Klik salah satu grid di peta untuk melihat detail.</p>
+    </div>
+
+  </aside>
+
+  <!-- Peta -->
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div id="map-left" class="map-half"></div>
+    <div id="map-right" class="map-half"></div>
+    <span class="map-label left">2016</span>
+    <span class="map-label right">2026</span>
+    <div id="swipe-handle"></div>
+
+    <a href="#findings" class="scroll-cue-btn">
+      <span>Sorotan temuan</span>
+      <span class="scroll-cue-arrow">↓</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- ============ SOROTAN TEMUAN ============ -->
+<section class="findings-strip" id="findings">
+  <div class="findings-inner">
+    <h2>Findings</h2>
+    <div class="findings-grid">
+      <div class="finding">
+        <span class="finding-num">01</span>
+        <p>Suhu permukaan Semarang 2026 terklaster kuat secara spasial (Moran's I = 0,82) dengan 28,2% grid masuk zona panas signifikan (High-High) dan bukan tersebar acak.</p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">02</span>
+        <p>Built-up fraction berkorelasi sangat kuat dengan LST (r = 0,82), sementara NDVI berkorelasi kuat negatif (r = -0,79). Hal ini mengindikasikan makin banyak lahan terbangun dan sedikit vegetasi, makin panas.</p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">03</span>
+        <p>Kepadatan jalan juga berkorelasi kuat dengan LST (r = 0,69). Zona panas dan sejuk bersama mencakup lebih dari separuh kota, memberi dasar jelas untuk intervensi tertarget.</p>
+      </div>
+    </div>
+    <a href="about.html#temuan" class="findings-link">More about this findings →</a>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

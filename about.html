@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Tentang &amp; Metodologi — Urbanization and Surface Thermal Change in Semarang (2016–2026)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <img src="logo.svg" alt="Logo SUH" class="brand-mark">
+    <div class="brand-text">
+      <span class="brand-title">Urbanization and Surface Thermal Change in Semarang (2016–2026)</span>
+      <span class="brand-sub">Urban Heat Island (UHI) Analysis</span>
+    </div>
+  </div>
+  <nav class="topbar-right">
+    <a href="index.html">← Kembali ke Peta</a>  
+  </nav>
+</header>
+
+<main class="doc">
+
+  <!-- TENTANG -->
+  <section class="doc-section" id="tentang">
+    <p class="doc-label">Latar Belakang</p>
+    <h1>Urbanization and Surface Thermal Change in Semarang (2016–2026)</h1>
+    <p class="doc-lede">Analisis spasial pertumbuhan lahan terbangun dan suhu permukaan tanah (LST) di Kota Semarang, membandingkan kondisi tahun 2016 dan 2026 pada 1.851 unit grid heksagonal
+    <p>Semarang merupakan salah satu kota pesisir dengan laju pertumbuhan tercepat di Pulau Jawa, dengan luas wilayah sekitar 373,7 km² dan jumlah penduduk yang tercatat mencapai 1.702.768 jiwa per akhir 2025 (Dinas Kependudukan dan Pencatatan Sipil Kota Semarang, 2026). Pertumbuhan penduduk tersebut berjalan beriringan dengan ekspansi kawasan permukiman dan komersial ke wilayah pinggiran kota, yang pada gilirannya mendorong perubahan tutupan lahan secara signifikan.</p>
+
+    <p>Periode 2016–2026 menjadi rentang waktu yang relevan untuk mengkaji transformasi fisik Kota Semarang, ditandai oleh setidaknya tiga proses utama yaitu (1) ekspansi kawasan industri dan komersial di koridor pesisir utara; (2) pembangunan infrastruktur skala besar, yaitu Jalan Tol Semarang–Demak sepanjang 26,95 km yang terbagi menjadi Seksi 1 Kaligawe–Sayung (10,64 km, berada di atas laut) dan Seksi 2 Sayung–Demak (16,31 km, telah beroperasi sejak Februari 2023), dengan target penyelesaian pada 2027 sekaligus berfungsi sebagai tanggul laut pengendali rob (Tempo.co, 2025); dan (3) alih fungsi lahan basah serta tambak menjadi kawasan terbangun baru.</p>
+    
+    <p>Perubahan tutupan lahan tersebut berlangsung bersamaan dengan permasalahan geoteknik yang telah lama menjadi perhatian di Semarang, yaitu penurunan muka tanah (land subsidence). Yuwono (2013) melaporkan bahwa laju penurunan muka tanah di Kota Semarang bervariasi antara 0–13 cm per tahun, dengan kecenderungan meningkat ke arah timur laut kota. Temuan tersebut diperkuat oleh kajian geospasial yang dilakukan pada forum SNST Universitas Wahid Hasyim (2016), yang mengidentifikasi kawasan PRPP, Tanjungmas, Terboyo, dan Kaligawe sebagai zona dengan laju penurunan tertinggi, yaitu 9–13 cm per tahun.</p>
+    <div class="callout">
+      <p><strong>Why Semarang?:</strong> Wilayah pesisir utara yang teridentifikasi sebagai zona penurunan muka tanah tertinggi tersebut merupakan kawasan yang sama dengan yang menunjukkan lonjakan suhu permukaan (land surface temperature/LST) tertinggi dalam hasil analisis Urban Heat Island (UHI) pada tahun 2026. Konvergensi antara kerentanan geoteknik (penurunan muka tanah, potensi genangan rob) dan kerentanan termal (urban heat island) pada kawasan yang sama mengindikasikan adanya akumulasi risiko lingkungan yang perlu mendapat perhatian khusus dalam perencanaan tata ruang dan mitigasi perubahan iklim perkotaan di Kota Semarang.</p>
+    </div>
+  </section>
+
+  <!-- TEMUAN -->
+  <section class="doc-section alt" id="temuan">
+    <p class="doc-label">Temuan</p>
+    <h2>Empat pola yang muncul dari data</h2>
+    <p class="doc-lede" style="max-width:620px; margin-left:auto; margin-right:auto; text-align:center;">Fokus analisis: pola spasial suhu permukaan (LST) Kota Semarang tahun 2026 dan faktor-faktor pendorongnya.</p>
+
+    <div class="finding-full">
+      <span class="finding-full-num">01</span>
+      <div>
+        <h3>Suhu permukaan Semarang terklaster kuat secara spasial</h3>
+        <p>Global Moran's I untuk LST 2026 tercatat <strong>0,82</strong> (p-value 0,001) — otokorelasi spasial yang sangat kuat. Ini berarti suhu panas di satu grid sangat terkait dengan suhu di grid-grid tetangganya, membentuk klaster yang jelas dan bukan tersebar acak.</p>
+        <p>522 dari 1.851 grid (28,2%) masuk klaster <strong>High-High</strong> (zona panas signifikan), dan 462 grid (24,96%) masuk klaster <strong>Low-Low</strong> (zona sejuk/stabil). Sisanya, 46,25% grid, tidak menunjukkan pola spasial yang signifikan secara statistik.</p>
+      </div>
+    </div>
+
+    <div class="finding-full">
+      <span class="finding-full-num">02</span>
+      <div>
+        <h3>Lahan terbangun dan hilangnya vegetasi adalah pendorong utama panas kota</h3>
+        <p>LST 2026 berkorelasi sangat kuat dengan built-up fraction (r = <strong>0,82</strong>) dan berkorelasi negatif kuat dengan NDVI (r = <strong>-0,79</strong>). Dua angka ini mengonfirmasi pola Urban Heat Island yang sudah umum dikenal dalam literatur, di mana makin banyak lahan terbangun dan makin sedikit vegetasi, makin panas area tersebut. Kepadatan jalan juga berkorelasi kuat (r = 0,69), sejalan dengan built-up sebagai penanda intensitas pembangunan.</p>
+      </div>
+    </div>
+
+    <div class="finding-full">
+      <span class="finding-full-num">03</span>
+      <div>
+        <h3>Zona panas mengelompok, memberi dasar untuk intervensi tertarget</h3>
+        <p>Karena klaster High-High dan Low-Low mencakup lebih dari separuh grid kota (53,16%), Pemkot Semarang punya dasar spasial yang jelas untuk menargetkan kebijakan mitigasi panas demgam fokus ke klaster High-High (kawasan padat/minim vegetasi) dan bukan kebijakan pukul rata se-kota yang kurang efisien secara anggaran maupun dampak.</p>
+      </div>
+    </div>
+
+    <div class="finding-full">
+      <span class="finding-full-num">04</span>
+      <div>
+        <h3>Faktor lain juga turut membentuk pola panas kota</h3>
+        <p>Selain built-up dan vegetasi, model regresi spasial turut mempertimbangkan jarak ke CBD, jalan arteri, serta garis pantai sebagai faktor tambahan. Grid-grid yang menyimpang jauh dari prediksi model (residual ekstrem) menandakan adanya faktor mikro-lokal seperti material permukaan atau pola ventilasi udara yang belum tertangkap oleh variabel yang tersedia, dan layak digali lebih lanjut lewat survei lapangan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGI -->
+  <section class="doc-section doc-section-wide" id="metodologi">
+    <p class="doc-label">Metodologi</p>
+    <h2>Dari Citra Satelit ke Analisis Spasial</h2>
+
+    <p><strong>Sumber data.</strong> Data utama diperoleh dari citra satelit Landsat melalui Google Earth Engine (GEE), yaitu komposit tahun 2016 menggunakan Landsat 8, dan komposit tahun 2026 menggunakan Landsat 9, keduanya diambil pada rentang bulan yang sama (Mei–Oktober) dan diagregasi menggunakan nilai mean untuk meminimalkan gangguan tutupan awan musiman. Dari komposit ini diturunkan Land Surface Temperature (LST), indeks spektral vegetasi dan lahan terbangun (NDVI, NDBI, NDWI, FVC), serta data probabilitas tutupan lahan dari Dynamic World V1. Data ini dilengkapi variabel eksternal seperto jaringan jalan dan jarak ke CBD/pantai/arteri (OpenStreetMap, diolah di QGIS), serta kepadatan penduduk (WorldPop/BPS).</p>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <span class="method-step-label">Fase 1</span>
+        <h3>Ekstraksi Data</h3>
+        <p>Seluruh data spasial dikumpulkan dari GEE (LST, NDVI, Built-up) dan sumber eksternal (jaringan jalan, populasi, topografi).</p>
+      </div>
+      <div class="method-step">
+        <span class="method-step-label">Fase 2</span>
+        <h3>Integrasi &amp; Agregasi Spasial (QGIS)</h3>
+        <p>Wilayah Semarang dibagi menjadi unit grid. Setiap variabel diagregasikan per grid, kemudian dihitung perubahan antar periode (ΔX = Data 2026 − Data 2016), menghasilkan satu matriks data spasial utama.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-step-label">Fase 3</span>
+        <h3>Analisis Spasial (GeoDa)</h3>
+        <p>Dibangun Spatial Weight Matrix untuk hubungan ketetanggaan antar-grid. Global &amp; Local Moran's I (LISA) mengidentifikasi klaster ΔLST; regresi spasial menguji hubungan ΔLST dengan faktor pendorongnya.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-step-label">Fase 4</span>
+        <h3>Interpretasi &amp; Rekomendasi</h3>
+        <p>Hasil analisis kemudian diterjemahkan ke implikasi kebijakan tata ruang. Wilayah yang menunjukkan lonjakan suhu tinggi, berada dalam kluster hotspot, dan/atau memiliki faktor pendorong yang signifikan dapat diprioritaskan sebagai lokasi intervensi</p>
+      </div>
+    </div>
+
+<div class="diagram-wrap">
+  <span class="control-label" style="display:block; margin-bottom:14px;">Diagram alur lengkap</span>
+  <img src="workflow-semarang.svg" alt="Diagram Alur Metodologi Metrik Spasial" class="diagram-svg">
+</div>
+
+  <!-- KESIMPULAN -->
+  <section class="doc-section alt" id="kesimpulan">
+    <p class="doc-label">Kesimpulan &amp; Rekomendasi</p>
+    <h2>Panas Kota Bergerak ke Pinggiran</h2>
+
+    <p>Suhu permukaan Kota Semarang tahun 2026 menunjukkan pola spasial yang sangat terklaster (Moran's I = 0,82), bukan tersebar acak. Zona panas (klaster High-High) dan zona sejuk (klaster Low-Low) bersama-sama mencakup lebih dari separuh wilayah kota. Built-up fraction dan hilangnya vegetasi terbukti menjadi pendorong utama pola ini, dengan korelasi yang sangat kuat (masing-masing r = 0,82 dan r = -0,79). Hal ini mengonfirmasi bahwa urbanisasi Semarang secara langsung membentuk lanskap termal kotanya.</p>
+
+    <ol class="recommendation-list">
+      <li>Prioritaskan intervensi di klaster High-High, khususnya koridor pesisir utara yang mengalami reklamasi dan pembangunan baru dan bukan hanya kawasan CBD yang secara historis dianggap paling panas.</li>
+      <li>Wajibkan Ruang Terbuka Hijau (RTH) dan penghijauan vertikal pada setiap izin pembangunan baru di zona pesisir/peri-urban, mengingat kawasan ini menunjukkan laju pemanasan tercepat sekaligus paling rentan rob dan penurunan muka tanah.</li>
+      <li>Penelitian lebih lanjut mengenai grid-grid anomali (residual OLS ekstrem) melalui survei lapangan, untuk mengidentifikasi faktor mikro-lokal yang belum tertangkap variabel model saat ini.</li>
+      <li>Integrasikan peta UHI ini dengan peta risiko rob dan penurunan muka tanah yang sudah ada, sehingga kebijakan mitigasi bisa dirancang secara terpadu.</li>
+    </ol>
+  </section>
+
+  <!-- Daftar Pustaka -->
+  <section class="doc-section alt" id="dafpus">
+    <h2>Daftar Pustaka</h2>
+    <li>Dinas Kependudukan dan Pencatatan Sipil Kota Semarang. (2026, 9 Februari). Jumlah penduduk Kota Semarang tahun 2025. https://dispendukcapil.semarangkota.go.id/jumlah-penduduk-kota-semarang-tahun-2025/</li>
+    <li>Tempo.co. (2025, 12 Januari). Proyek Tol Semarang-Demak baru 30 persen, AHY targetkan selesai April 2027. https://www.tempo.co/ekonomi/proyek-tol-semarang-demak-baru-30-persen-ahy-targetkan-selesai-april-2027-1193715</li>
+    <li>Yuwono, B. D., Abidin, H. Z., & Hilmi, M. (2013). Analisa geospasial penyebab penurunan muka tanah di Kota Semarang. Prosiding Seminar Nasional Sains dan Teknologi (SNST), Universitas Wahid Hasyim. https://publikasiilmiah.unwahas.ac.id/PROSIDING_SNST_FT/article/view/700</li>
+    <li>Yuwono, B. D. (2013). Korelasi penurunan muka tanah dengan penurunan muka air tanah di Kota Semarang. Teknik, 34(3), 188–195. https://ejournal.undip.ac.id/index.php/teknik/article/view/6725</li>
+    
+    <!-- TENTANG SAYA -->
+  <section class="doc-section" id="kontak">
+    <p class="doc-label">Tentang Penulis</p>
+    <h2>Andre Lingga</h2>
+    <p>Urban and Regional Planning graduate with an interest in urban development, spatial planning, transportation planning and sustainable urban development.</p>
+    <p>My academic and practical experiences have shaped my interest in understanding urban growth, spatial transformation, and transportation systems. Through planning projects, spatial analysis, and my internship experience, I have gained exposure to how data and planning approaches can support better decision-making in urban development.<p>
+    <p>I am currently exploring opportunities in GIS Analyst and Geopastial Data Analyst where I can contribute analytical skills and continue developing as a planning professional.</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/andreheskialingga/">LinkedIn</a>
+      <a href="mailto:andheskia.lingga@gmail.com">Email</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "neutral",
+    flowchart: { curve: "basis", htmlLabels: true },
+    securityLevel: "loose"
+  });
+</script>
+</body>
+</html>
